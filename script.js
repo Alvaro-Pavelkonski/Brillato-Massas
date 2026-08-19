@@ -368,7 +368,7 @@ function enviarPedidoWhatsApp() {
         msg += `\n📝 *Observações:* ${obs}\n`;
     }
 
-    const numeroWhatsApp = "5562993431622"; // Insira aqui o número real do restaurante
+    const numeroWhatsApp = "5500000000000"; // Insira aqui o número real do restaurante
     const url = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(msg)}`;
 
     window.open(url, '_blank');
