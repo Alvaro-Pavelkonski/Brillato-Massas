@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brillato Massas | Cardápio Digital</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- CABEÇALHO DA LOJA -->
+    <header class="cabecalho">
+        <div class="header-container">
+            <div class="logo">
+                <img src="Gemini_Generated_Image_ny6dz2ny6dz2ny6d_2.png" alt="Brillato Massas" class="logo-img" onerror="this.src='https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=200&q=80'">
+                <div class="logo-texto">
+                    <h1>Brillato</h1>
+                    <p>Massas artesanais</p>
+                </div>
+            </div>
+
+            <!-- STATUS DINÂMICO -->
+            <div class="status-container">
+                <div id="statusFuncionamento" class="status-badge fechado">
+                    <span id="statusIndicador" class="status-ponto"></span>
+                    <span id="statusTexto">Verificando...</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="horario-box">
+            <p class="horario-info">
+                <span>🕒 <strong>Horário de Funcionamento:</strong></span>
+                <span>Quinta a Domingo • 19:00 às 23:00</span>
+                <small class="dias-fechado">Segunda, Terça e Quarta: FECHADO</small>
+            </p>
+        </div>
+    </header>
+
+    <!-- NAVEGAÇÃO DE CATEGORIAS (ABAS) -->
+    <nav class="categorias-nav">
+        <button class="cat-btn active" data-target="secao-monte">🍝 Monte a sua</button>
+        <button class="cat-btn" data-target="secao-massas">🍝 Massas Prontas</button>
+        <button class="cat-btn" data-target="secao-adicionais">🧀 Adicionais</button>
+        <button class="cat-btn" data-target="secao-bebidas">🥤 Bebidas</button>
+    </nav>
+
+    <main class="container-principal">
+        <!-- SEÇÃO: MONTE SEU MACARRÃO -->
+        <section id="secao-monte" class="secao-cardapio active">
+            <div class="card-monte">
+                <div class="card-monte-header">
+                    <h2>🍝 Monte seu Macarrão</h2>
+                    <p class="subtitulo">Crie seu macarrão personalizado do seu jeito!</p>
+                    <span class="badge-preco">A partir de R$ 48,00</span>
+                </div>
+
+                <form id="formMonteMacarrao" class="monte-form">
+                    <div class="opcao-grupo">
+                        <h3>1. Escolha sua massa <span class="obrigatorio">*</span></h3>
+                        <div class="grid-radios">
+                            <label class="radio-card">
+                                <input type="radio" name="massa-montada" value="Espaguete" checked>
+                                <span>Espaguete</span>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="massa-montada" value="Penne">
+                                <span>Penne</span>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="massa-montada" value="Parafuso">
+                                <span>Parafuso</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="opcao-grupo">
+                        <h3>2. Escolha até 2 molhos</h3>
+                        <div class="grid-checkboxes">
+                            <label class="check-card"><input type="checkbox" name="molho-montado" value="Bolonhesa"> <span>Bolonhesa</span></label>
+                            <label class="check-card"><input type="checkbox" name="molho-montado" value="Branco"> <span>Branco</span></label>
+                            <label class="check-card"><input type="checkbox" name="molho-montado" value="Ao Sugo"> <span>Ao Sugo</span></label>
+                        </div>
+                    </div>
+
+                    <div class="opcao-grupo">
+                        <h3>3. Escolha seus temperos</h3>
+                        <div class="grid-checkboxes">
+                            <label class="check-card"><input type="checkbox" name="tempero-montado" value="Orégano"> <span>Orégano</span></label>
+                            <label class="check-card"><input type="checkbox" name="tempero-montado" value="Manjericão"> <span>Manjericão</span></label>
+                            <label class="check-card"><input type="checkbox" name="tempero-montado" value="Alho crocante"> <span>Alho crocante</span></label>
+                            <label class="check-card"><input type="checkbox" name="tempero-montado" value="Cebola verde"> <span>Cebola verde</span></label>
+                            <label class="check-card"><input type="checkbox" name="tempero-montado" value="Salsa verde"> <span>Salsa verde</span></label>
+                            <label class="check-card"><input type="checkbox" name="tempero-montado" value="Pimenta calabresa"> <span>Pimenta calabresa</span></label>
+                        </div>
+                    </div>
+
+                    <div class="opcao-grupo">
+                        <h3>4. Escolha até 8 ingredientes</h3>
+                        <div class="grid-checkboxes flex-wrap">
+                            <label class="check-card"><input type="checkbox" name="ingrediente" value="Milho"> <span>Milho</span></label>
+                            <label class="check-card"><input type="checkbox" name="ingrediente" value="Tomate"> <span>Tomate</span></label>
+                            <label class="check-card"><input type="checkbox" name="ingrediente" value="Cenoura"> <span>Cenoura</span></label>
+                            <label class="check-card"><input type="checkbox" name="ingrediente" value="Brócolis"> <span>Brócolis</span></label>
+                            <label class="check-card"><input type="checkbox" name="ingrediente" value="Uva passas"> <span>Uva passas</span></label>
+                            <label class="check-card"><input type="checkbox" name="ingrediente" value="Azeitona"> <span>Azeitona</span></label>
+                            <label class="check-card"><input type="checkbox" name="ingrediente" value="Palmito"> <span>Palmito</span></label>
+                            <label class="check-card"><input type="checkbox" name="ingrediente" value="Champignon"> <span>Champignon</span></label>
+                            <label class="check-card"><input type="checkbox" name="ingrediente" value="Batata palha"> <span>Batata palha</span></label>
+                            <label class="check-card"><input type="checkbox" name="ingrediente" value="Ovo de codorna"> <span>Ovo de codorna</span></label>
+                            <label class="check-card"><input type="checkbox" name="ingrediente" value="Salsicha"> <span>Salsicha</span></label>
+                            <label class="check-card"><input type="checkbox" name="ingrediente" value="Bacon"> <span>Bacon</span></label>
+                            <label class="check-card"><input type="checkbox" name="ingrediente" value="Calabresa"> <span>Calabresa</span></label>
+                            <label class="check-card"><input type="checkbox" name="ingrediente" value="Frango desfiado"> <span>Frango desfiado</span></label>
+                            <label class="check-card"><input type="checkbox" name="ingrediente" value="Muçarela"> <span>Muçarela</span></label>
+                        </div>
+                    </div>
+
+                    <button type="button" id="btn-montar-macarrao" class="btn-acao primario full">Adicionar ao pedido • R$ 48,00</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: MASSAS PRONTAS -->
+        <section id="secao-massas" class="secao-cardapio">
+            <h2 class="titulo-categoria">🍝 Massas Prontas</h2>
+            <div class="produtos-grid">
+
+                <article class="produto-card">
+                    <div class="produto-img-box">
+                        <img src="https://images.unsplash.com/photo-1621996346565-e3d5d6281288?w=500&q=80" alt="Bolonhesa" loading="lazy">
+                    </div>
+                    <div class="produto-conteudo">
+                        <h3>Bolonhesa</h3>
+                        <p class="descricao">Macarrão Grano Duro com molho bolonhesa, carne moída, cebola verde e salsa.</p>
+
+                        <div class="produto-opcoes">
+                            <div class="select-field">
+                                <label>Tamanho</label>
+                                <select class="tamanho-select">
+                                    <option value="20.00" data-label="P (500g)">P — 500g — R$ 20,00</option>
+                                    <option value="28.00" data-label="G (750g)">G — 750g — R$ 28,00</option>
+                                </select>
+                            </div>
+                            <div class="select-field">
+                                <label>Massa</label>
+                                <select class="massa-select">
+                                    <option value="Espaguete">Espaguete</option>
+                                    <option value="Penne">Penne</option>
+                                    <option value="Parafuso">Parafuso</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="produto-rodape">
+                            <span class="preco-destaque">A partir de R$ 20,00</span>
+                            <button class="btn-acao btn-add-massa" data-nome="Bolonhesa">Adicionar</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="produto-card">
+                    <div class="produto-img-box">
+                        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=500&q=80" alt="Alho e Óleo com Bacon" loading="lazy">
+                    </div>
+                    <div class="produto-conteudo">
+                        <h3>Alho e Óleo com Bacon</h3>
+                        <p class="descricao">Macarrão Grano Duro com alho crocante, bacon, cebola verde e salsa.</p>
+
+                        <div class="produto-opcoes">
+                            <div class="select-field">
+                                <label>Tamanho</label>
+                                <select class="tamanho-select">
+                                    <option value="20.00" data-label="P (500g)">P — 500g — R$ 20,00</option>
+                                    <option value="28.00" data-label="G (750g)">G — 750g — R$ 28,00</option>
+                                </select>
+                            </div>
+                            <div class="select-field">
+                                <label>Massa</label>
+                                <select class="massa-select">
+                                    <option value="Espaguete">Espaguete</option>
+                                    <option value="Penne">Penne</option>
+                                    <option value="Parafuso">Parafuso</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="produto-rodape">
+                            <span class="preco-destaque">A partir de R$ 20,00</span>
+                            <button class="btn-acao btn-add-massa" data-nome="Alho e Óleo com Bacon">Adicionar</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="produto-card">
+                    <div class="produto-img-box">
+                        <img src="https://images.unsplash.com/photo-1645112411341-6c4fd023714a?w=500&q=80" alt="Molho Branco" loading="lazy">
+                    </div>
+                    <div class="produto-conteudo">
+                        <h3>Molho Branco</h3>
+                        <p class="descricao">Macarrão Grano Duro com molho branco, milho, muçarela e cebola verde.</p>
+
+                        <div class="produto-opcoes">
+                            <div class="select-field">
+                                <label>Tamanho</label>
+                                <select class="tamanho-select">
+                                    <option value="26.00" data-label="P (500g)">P — 500g — R$ 26,00</option>
+                                    <option value="35.00" data-label="G (750g)">G — 750g — R$ 35,00</option>
+                                </select>
+                            </div>
+                            <div class="select-field">
+                                <label>Massa</label>
+                                <select class="massa-select">
+                                    <option value="Espaguete">Espaguete</option>
+                                    <option value="Penne">Penne</option>
+                                    <option value="Parafuso">Parafuso</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="produto-rodape">
+                            <span class="preco-destaque">A partir de R$ 26,00</span>
+                            <button class="btn-acao btn-add-massa" data-nome="Molho Branco">Adicionar</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="produto-card">
+                    <div class="produto-img-box">
+                        <img src="https://images.unsplash.com/photo-1598866594230-a7c12756260f?w=500&q=80" alt="Ao Sugo" loading="lazy">
+                    </div>
+                    <div class="produto-conteudo">
+                        <h3>Ao Sugo</h3>
+                        <p class="descricao">Macarrão Grano Duro com molho de tomate, palmito, muçarela, cebola verde, salsa e alho crocante.</p>
+
+                        <div class="produto-opcoes">
+                            <div class="select-field">
+                                <label>Tamanho</label>
+                                <select class="tamanho-select">
+                                    <option value="26.00" data-label="P (500g)">P — 500g — R$ 26,00</option>
+                                    <option value="35.00" data-label="G (750g)">G — 750g — R$ 35,00</option>
+                                </select>
+                            </div>
+                            <div class="select-field">
+                                <label>Massa</label>
+                                <select class="massa-select">
+                                    <option value="Espaguete">Espaguete</option>
+                                    <option value="Penne">Penne</option>
+                                    <option value="Parafuso">Parafuso</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="produto-rodape">
+                            <span class="preco-destaque">A partir de R$ 26,00</span>
+                            <button class="btn-acao btn-add-massa" data-nome="Ao Sugo">Adicionar</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="produto-card">
+                    <div class="produto-img-box">
+                        <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500&q=80" alt="Molho Misto" loading="lazy">
+                    </div>
+                    <div class="produto-conteudo">
+                        <h3>Molho Misto</h3>
+                        <p class="descricao">Macarrão Grano Duro com molho bolonhesa, molho branco, muçarela, cebola verde e alho crocante.</p>
+
+                        <div class="produto-opcoes">
+                            <div class="select-field">
+                                <label>Tamanho</label>
+                                <select class="tamanho-select">
+                                    <option value="28.00" data-label="P (500g)">P — 500g — R$ 28,00</option>
+                                    <option value="38.00" data-label="G (750g)">G — 750g — R$ 38,00</option>
+                                </select>
+                            </div>
+                            <div class="select-field">
+                                <label>Massa</label>
+                                <select class="massa-select">
+                                    <option value="Espaguete">Espaguete</option>
+                                    <option value="Penne">Penne</option>
+                                    <option value="Parafuso">Parafuso</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="produto-rodape">
+                            <span class="preco-destaque">A partir de R$ 28,00</span>
+                            <button class="btn-acao btn-add-massa" data-nome="Molho Misto">Adicionar</button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO: ADICIONAIS -->
+        <section id="secao-adicionais" class="secao-cardapio">
+            <h2 class="titulo-categoria">🧀 Adicionais Extras</h2>
+            <p class="subtitulo-secao">Porções extras para turbinar suas massas</p>
+
+            <div class="adicionais-grid">
+                <article class="item-simples-card">
+                    <div class="item-info">
+                        <h4>Queijo Ralado Extra</h4>
+                        <span class="preco-tag">+ R$ 4,00</span>
+                    </div>
+                    <button class="btn-acao btn-add-adicional" data-nome="Queijo Ralado Extra" data-preco="4.00">Adicionar</button>
+                </article>
+
+                <article class="item-simples-card">
+                    <div class="item-info">
+                        <h4>Bacon Extra</h4>
+                        <span class="preco-tag">+ R$ 6,00</span>
+                    </div>
+                    <button class="btn-acao btn-add-adicional" data-nome="Bacon Extra" data-preco="6.00">Adicionar</button>
+                </article>
+
+                <article class="item-simples-card">
+                    <div class="item-info">
+                        <h4>Alho Crocante Extra</h4>
+                        <span class="preco-tag">+ R$ 3,00</span>
+                    </div>
+                    <button class="btn-acao btn-add-adicional" data-nome="Alho Crocante Extra" data-preco="3.00">Adicionar</button>
+                </article>
+
+                <article class="item-simples-card">
+                    <div class="item-info">
+                        <h4>Frango Desfiado Extra</h4>
+                        <span class="preco-tag">+ R$ 7,00</span>
+                    </div>
+                    <button class="btn-acao btn-add-adicional" data-nome="Frango Desfiado Extra" data-preco="7.00">Adicionar</button>
+                </article>
+
+                <article class="item-simples-card">
+                    <div class="item-info">
+                        <h4>Muçarela Extra</h4>
+                        <span class="preco-tag">+ R$ 5,00</span>
+                    </div>
+                    <button class="btn-acao btn-add-adicional" data-nome="Muçarela Extra" data-preco="5.00">Adicionar</button>
+                </article>
+
+                <article class="item-simples-card">
+                    <div class="item-info">
+                        <h4>Palmito Extra</h4>
+                        <span class="preco-tag">+ R$ 5,00</span>
+                    </div>
+                    <button class="btn-acao btn-add-adicional" data-nome="Palmito Extra" data-preco="5.00">Adicionar</button>
+                </article>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: BEBIDAS -->
+        <section id="secao-bebidas" class="secao-cardapio">
+            <h2 class="titulo-categoria">🥤 Bebidas</h2>
+            <div class="bebidas-grid">
+                <article class="produto-card horizontal">
+                    <div class="produto-img-box mini">
+                        <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&q=80" alt="Coca-Cola 350ml" loading="lazy">
+                    </div>
+                    <div class="produto-conteudo">
+                        <h3>Coca-Cola 350ml</h3>
+                        <p class="descricao">Lata trincando de gelada.</p>
+                        <div class="produto-rodape">
+                            <span class="preco-destaque">R$ 6,00</span>
+                            <button class="btn-acao btn-add-bebida" data-nome="Coca-Cola 350ml" data-preco="6.00">Adicionar</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- CARRINHO / CHECKOUT -->
+        <section id="carrinho" class="carrinho-container">
+            <div class="carrinho-header">
+                <h2>🛒 Seu Pedido</h2>
+                <span id="carrinhoContadorBadges" class="carrinho-count">0 itens</span>
+            </div>
+
+            <div class="itens-carrinho" id="listaItensCarrinho">
+                <div class="carrinho-vazio">
+                    <p>Seu carrinho está vazio.</p>
+                    <small>Escolha itens deliciosos acima para começar!</small>
+                </div>
+            </div>
+
+            <div class="resumo-valores">
+                <div class="linha-valor total-linha">
+                    <span>Total do Pedido:</span>
+                    <strong id="valorTotalExibicao">R$ 0,00</strong>
+                </div>
+            </div>
+
+            <div class="dados-cliente">
+                <h3>📍 Dados para Entrega</h3>
+
+                <div class="campo-grupo">
+                    <input type="text" id="nomeCliente" placeholder="Seu Nome Completo *" class="input-padrao">
+                </div>
+                <div class="campo-grupo">
+                    <input type="tel" id="telefoneCliente" placeholder="WhatsApp com DDD *" class="input-padrao">
+                </div>
+
+                <!-- BLOCO DE LOCALIZAÇÃO GPS -->
+                <div class="bloco-gps">
+                    <button type="button" id="btnGeolocalizacao" class="btn-gps">
+                        📍 Obter Minha Localização Atual (GPS)
+                    </button>
+                    <p id="statusGps" class="status-gps-texto"></p>
+                </div>
+
+                <small style="color: #6c757d; display: block; margin-bottom: 8px;">
+                    💡 Use a localização acima <strong>OU</strong> preencha os campos de endereço abaixo:
+                </small>
+
+                <!-- CAMPOS DE ENDEREÇO (OPCIONAIS SE O GPS FOR USADO) -->
+                <div class="campos-entrega">
+                    <input type="text" id="ruaCliente" placeholder="Rua / Avenida" class="input-padrao">
+                    <div class="grid-2-col">
+                        <input type="text" id="numeroCliente" placeholder="Número" class="input-padrao">
+                        <input type="text" id="bairroCliente" placeholder="Bairro" class="input-padrao">
+                    </div>
+                    <input type="text" id="complementoCliente" placeholder="Complemento (Apto, Bloco)" class="input-padrao">
+                    <input type="text" id="referenciaCliente" placeholder="Ponto de referência" class="input-padrao">
+                    <input type="hidden" id="linkGps">
+                </div>
+
+                <!-- FORMA DE PAGAMENTO (RESTRITO A PIX E DÉBITO) -->
+                <div class="grupo-pagamento">
+                    <h3>💳 Forma de Pagamento</h3>
+                    <div class="opcoes-radio-pagamento">
+                        <label class="radio-pagamento-card">
+                            <input type="radio" name="formaPagamento" value="PIX" checked>
+                            <span class="radio-content">
+                                <strong>PIX</strong>
+                                <small>Chave enviada no WhatsApp</small>
+                            </span>
+                        </label>
+                        <label class="radio-pagamento-card">
+                            <input type="radio" name="formaPagamento" value="Cartão de Débito">
+                            <span class="radio-content">
+                                <strong>Cartão de Débito</strong>
+                                <small>Maquininha na entrega</small>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <textarea id="observacaoCliente" placeholder="Observações do pedido (ex: tirar a cebola, caprichar no molho...)" class="input-padrao textarea"></textarea>
+                </div>
+            </div>
+
+            <button id="btnFinalizarPedido" class="btn-acao primario full btn-finalizar-lg">
+                Conferir e Avançar para o Resumo
+            </button>
+        </section>
+    </main>
+
+    <!-- BARRA FIXA DE CARRINHO PARA CELULAR -->
+    <div id="barraFixaCarrinho" class="barra-fixa-mobile oculto">
+        <div class="info-barra">
+            <span id="mobileQtdItens">0 itens</span>
+            <strong id="mobileValorTotal">R$ 0,00</strong>
+        </div>
+        <button id="btnVerCarrinhoMobile" class="btn-acao primario sm">Ver Pedido 🛒</button>
+    </div>
+
+    <!-- MODAL DE RESUMO -->
+    <div id="modalResumo" class="modal-overlay">
+        <div class="modal-conteudo">
+            <div class="modal-header">
+                <h2>📋 Resumo do Pedido</h2>
+                <button id="btnFecharModal" class="btn-fechar">&times;</button>
+            </div>
+
+            <div class="modal-corpo">
+                <section class="resumo-bloco">
+                    <h4>👤 Cliente</h4>
+                    <p id="modalNomeTel"></p>
+                </section>
+
+                <section class="resumo-bloco">
+                    <h4>📍 Endereço</h4>
+                    <p id="modalEndereco"></p>
+                </section>
+
+                <section class="resumo-bloco">
+                    <h4>🍝 Itens do Pedido</h4>
+                    <div id="modalItensLista" class="resumo-itens-lista"></div>
+                </section>
+
+                <section class="resumo-bloco">
+                    <h4>💳 Pagamento</h4>
+                    <p id="modalPagamentoInfo"></p>
+                </section>
+
+                <div class="modal-total-box">
+                    <span>Total a pagar:</span>
+                    <strong id="modalTotalValor">R$ 0,00</strong>
+                </div>
+            </div>
+
+            <div class="modal-botoes">
+                <button class="btn-acao secundario" id="btnEditarPedido">Voltar e Editar</button>
+                <button class="btn-acao wpp" id="btnConfirmarPedido">Enviar Pedido no WhatsApp 🚀</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="rodape">
+        <p><strong>Brillato Massas Artesanais</strong> © 2026</p>
+        <p>Quinta a Domingo das 19h às 23h</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
