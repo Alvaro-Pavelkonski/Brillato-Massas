@@ -113,38 +113,106 @@ function inicializarEventosCarrinho() {
     });
 
     // Adicionar Monte seu Macarrão
-    const btnMonte = document.getElementById('btn-montar-macarrao');
-    if (btnMonte) {
-        btnMonte.addEventListener('click', () => {
-            const form = document.getElementById('formMonteMacarrao');
-            const massa = form.querySelector('input[name="massa-montada"]:checked')?.value;
-            
-            const molhos = Array.from(form.querySelectorAll('input[name="molho-montado"]:checked')).map(cb => cb.value);
-            const temperos = Array.from(form.querySelectorAll('input[name="tempero-montado"]:checked')).map(cb => cb.value);
-            const ingredientes = Array.from(form.querySelectorAll('input[name="ingrediente"]:checked')).map(cb => cb.value);
+const btnMonte = document.getElementById('btn-montar-macarrao');
 
-            if (!massa) {
-                alert('Por favor, escolha o tipo de massa!');
-                return;
+if (btnMonte) {
+
+    const form = document.getElementById('formMonteMacarrao');
+
+    // Limita a seleção de ingredientes a no máximo 8
+    const ingredientesCheckboxes = form.querySelectorAll(
+        'input[name="ingrediente"]'
+    );
+
+    ingredientesCheckboxes.forEach((checkbox) => {
+
+        checkbox.addEventListener('change', function () {
+
+            const selecionados = form.querySelectorAll(
+                'input[name="ingrediente"]:checked'
+            );
+
+            if (selecionados.length > 8) {
+
+                // Desmarca o 9º ingrediente
+                this.checked = false;
+
+                alert('Você pode escolher no máximo 8 ingredientes.');
             }
-
-            let detalhes = [`Massa: ${massa}`];
-            if (molhos.length) detalhes.push(`Molhos: ${molhos.join(', ')}`);
-            if (temperos.length) detalhes.push(`Temperos: ${temperos.join(', ')}`);
-            if (ingredientes.length) detalhes.push(`Ingredientes: ${ingredientes.join(', ')}`);
-
-            adicionarAoCarrinho({
-                id: `monte-${Date.now()}`,
-                nome: 'Monte seu Macarrão',
-                detalhes: detalhes.join(' | '),
-                preco: 48.00,
-                quantidade: 1
-            });
-
-            form.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
         });
-    }
+    });
 
+
+    // Botão Montar Macarrão
+    btnMonte.addEventListener('click', () => {
+
+        const massa = form.querySelector(
+            'input[name="massa-montada"]:checked'
+        )?.value;
+
+        const molhos = Array.from(
+            form.querySelectorAll(
+                'input[name="molho-montado"]:checked'
+            )
+        ).map(cb => cb.value);
+
+        const temperos = Array.from(
+            form.querySelectorAll(
+                'input[name="tempero-montado"]:checked'
+            )
+        ).map(cb => cb.value);
+
+        const ingredientes = Array.from(
+            form.querySelectorAll(
+                'input[name="ingrediente"]:checked'
+            )
+        ).map(cb => cb.value);
+
+
+        // Validação da massa
+        if (!massa) {
+            alert('Por favor, escolha o tipo de massa!');
+            return;
+        }
+
+
+        // Validação dos ingredientes
+        if (ingredientes.length > 8) {
+            alert('Você pode escolher no máximo 8 ingredientes.');
+            return;
+        }
+
+
+        let detalhes = [`Massa: ${massa}`];
+
+        if (molhos.length) {
+            detalhes.push(`Molhos: ${molhos.join(', ')}`);
+        }
+
+        if (temperos.length) {
+            detalhes.push(`Temperos: ${temperos.join(', ')}`);
+        }
+
+        if (ingredientes.length) {
+            detalhes.push(`Ingredientes: ${ingredientes.join(', ')}`);
+        }
+
+
+        adicionarAoCarrinho({
+            id: `monte-${Date.now()}`,
+            nome: 'Monte seu Macarrão',
+            detalhes: detalhes.join(' | '),
+            preco: 48.00,
+            quantidade: 1
+        });
+
+
+        // Limpa as seleções depois de adicionar ao carrinho
+        form.querySelectorAll('input[type="checkbox"]').forEach(
+            cb => cb.checked = false
+        );
+    });
+}
     // Adicionar Adicionais Extras
     document.querySelectorAll('.btn-add-adicional').forEach(btn => {
         btn.addEventListener('click', () => {
