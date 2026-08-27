@@ -21,7 +21,8 @@ function inicializarNavegacaoAbas() {
 
             btn.classList.add('active');
             const targetId = btn.getAttribute('data-target');
-            document.getElementById(targetId).classList.add('active');
+            const secaoAlvo = document.getElementById(targetId);
+            if (secaoAlvo) secaoAlvo.classList.add('active');
         });
     });
 }
@@ -30,6 +31,8 @@ function inicializarNavegacaoAbas() {
 function inicializarVerificacaoHorario() {
     const statusBadge = document.getElementById('statusFuncionamento');
     const statusTexto = document.getElementById('statusTexto');
+
+    if (!statusBadge || !statusTexto) return;
 
     function checarStatus() {
         const agora = new Date();
@@ -113,106 +116,56 @@ function inicializarEventosCarrinho() {
     });
 
     // Adicionar Monte seu Macarrão
-const btnMonte = document.getElementById('btn-montar-macarrao');
-
-if (btnMonte) {
-
+    const btnMonte = document.getElementById('btn-montar-macarrao');
     const form = document.getElementById('formMonteMacarrao');
 
-    // Limita a seleção de ingredientes a no máximo 8
-    const ingredientesCheckboxes = form.querySelectorAll(
-        'input[name="ingrediente"]'
-    );
+    if (btnMonte && form) {
+        // Limita a seleção de ingredientes a no máximo 8
+        const ingredientesCheckboxes = form.querySelectorAll('input[name="ingrediente"]');
 
-    ingredientesCheckboxes.forEach((checkbox) => {
+        ingredientesCheckboxes.forEach((checkbox) => {
+            checkbox.addEventListener('change', function () {
+                const selecionados = form.querySelectorAll('input[name="ingrediente"]:checked');
 
-        checkbox.addEventListener('change', function () {
+                if (selecionados.length > 8) {
+                    this.checked = false;
+                    alert('Você pode escolher no máximo 8 ingredientes.');
+                }
+            });
+        });
 
-            const selecionados = form.querySelectorAll(
-                'input[name="ingrediente"]:checked'
-            );
+        // Botão Montar Macarrão
+        btnMonte.addEventListener('click', () => {
+            const massa = form.querySelector('input[name="massa-montada"]:checked')?.value;
+            const molhos = Array.from(form.querySelectorAll('input[name="molho-montado"]:checked')).map(cb => cb.value);
+            const temperos = Array.from(form.querySelectorAll('input[name="tempero-montado"]:checked')).map(cb => cb.value);
+            const ingredientes = Array.from(form.querySelectorAll('input[name="ingrediente"]:checked')).map(cb => cb.value);
 
-            if (selecionados.length > 8) {
-
-                // Desmarca o 9º ingrediente
-                this.checked = false;
-
-                alert('Você pode escolher no máximo 8 ingredientes.');
+            // Validação da massa
+            if (!massa) {
+                alert('Por favor, escolha o tipo de massa!');
+                return;
             }
+
+            let detalhes = [`Massa: ${massa}`];
+
+            if (molhos.length) detalhes.push(`Molhos: ${molhos.join(', ')}`);
+            if (temperos.length) detalhes.push(`Temperos: ${temperos.join(', ')}`);
+            if (ingredientes.length) detalhes.push(`Ingredientes: ${ingredientes.join(', ')}`);
+
+            adicionarAoCarrinho({
+                id: `monte-${Date.now()}`,
+                nome: 'Monte seu Macarrão',
+                detalhes: detalhes.join(' | '),
+                preco: 48.00,
+                quantidade: 1
+            });
+
+            // Limpa as seleções depois de adicionar ao carrinho
+            form.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(cb => cb.checked = false);
         });
-    });
+    }
 
-
-    // Botão Montar Macarrão
-    btnMonte.addEventListener('click', () => {
-
-        const massa = form.querySelector(
-            'input[name="massa-montada"]:checked'
-        )?.value;
-
-        const molhos = Array.from(
-            form.querySelectorAll(
-                'input[name="molho-montado"]:checked'
-            )
-        ).map(cb => cb.value);
-
-        const temperos = Array.from(
-            form.querySelectorAll(
-                'input[name="tempero-montado"]:checked'
-            )
-        ).map(cb => cb.value);
-
-        const ingredientes = Array.from(
-            form.querySelectorAll(
-                'input[name="ingrediente"]:checked'
-            )
-        ).map(cb => cb.value);
-
-
-        // Validação da massa
-        if (!massa) {
-            alert('Por favor, escolha o tipo de massa!');
-            return;
-        }
-
-
-        // Validação dos ingredientes
-        if (ingredientes.length > 8) {
-            alert('Você pode escolher no máximo 8 ingredientes.');
-            return;
-        }
-
-
-        let detalhes = [`Massa: ${massa}`];
-
-        if (molhos.length) {
-            detalhes.push(`Molhos: ${molhos.join(', ')}`);
-        }
-
-        if (temperos.length) {
-            detalhes.push(`Temperos: ${temperos.join(', ')}`);
-        }
-
-        if (ingredientes.length) {
-            detalhes.push(`Ingredientes: ${ingredientes.join(', ')}`);
-        }
-
-
-        adicionarAoCarrinho({
-            id: `monte-${Date.now()}`,
-            nome: 'Monte seu Macarrão',
-            detalhes: detalhes.join(' | '),
-            preco: 48.00,
-            quantidade: 1
-        });
-
-
-        // Limpa as seleções depois de adicionar ao carrinho
-        form.querySelectorAll('input[type="checkbox"]').forEach(
-            cb => cb.checked = false
-        );
-    });
-}
     // Adicionar Adicionais Extras
     document.querySelectorAll('.btn-add-adicional').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -247,7 +200,7 @@ if (btnMonte) {
 
     // Navegação Mobile
     document.getElementById('btnVerCarrinhoMobile')?.addEventListener('click', () => {
-        document.getElementById('carrinho').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('carrinho')?.scrollIntoView({ behavior: 'smooth' });
     });
 
     // Modal e Finalização
@@ -278,6 +231,8 @@ function alterarQuantidade(id, delta) {
     }
     atualizarExibicaoCarrinho();
 }
+// Tornando global para uso do onclick inline
+window.alterarQuantidade = alterarQuantidade;
 
 function atualizarExibicaoCarrinho() {
     const lista = document.getElementById('listaItensCarrinho');
@@ -290,16 +245,20 @@ function atualizarExibicaoCarrinho() {
     const totalItens = carrinho.reduce((acc, cur) => acc + cur.quantidade, 0);
     const valorTotal = carrinho.reduce((acc, cur) => acc + (cur.preco * cur.quantidade), 0);
 
-    contadorBadges.textContent = `${totalItens} itens`;
-    valorExibicao.textContent = `R$ ${valorTotal.toFixed(2).replace('.', ',')}`;
+    if (contadorBadges) contadorBadges.textContent = `${totalItens} itens`;
+    if (valorExibicao) valorExibicao.textContent = `R$ ${valorTotal.toFixed(2).replace('.', ',')}`;
 
-    if (totalItens > 0) {
-        barraMobile.classList.remove('oculto');
-        mobileQtd.textContent = `${totalItens} ${totalItens === 1 ? 'item' : 'itens'}`;
-        mobileValor.textContent = `R$ ${valorTotal.toFixed(2).replace('.', ',')}`;
-    } else {
-        barraMobile.classList.add('oculto');
+    if (barraMobile) {
+        if (totalItens > 0) {
+            barraMobile.classList.remove('oculto');
+            if (mobileQtd) mobileQtd.textContent = `${totalItens} ${totalItens === 1 ? 'item' : 'itens'}`;
+            if (mobileValor) mobileValor.textContent = `R$ ${valorTotal.toFixed(2).replace('.', ',')}`;
+        } else {
+            barraMobile.classList.add('oculto');
+        }
     }
+
+    if (!lista) return;
 
     if (carrinho.length === 0) {
         lista.innerHTML = `
@@ -318,30 +277,38 @@ function atualizarExibicaoCarrinho() {
                 <span class="preco-tag">R$ ${(item.preco * item.quantidade).toFixed(2).replace('.', ',')}</span>
             </div>
             <div class="item-carrinho-acoes">
-                <button class="btn-qtd" onclick="alterarQuantidade('${item.id}', -1)">-</button>
+                <button class="btn-qtd" onclick="window.alterarQuantidade('${item.id}', -1)">-</button>
                 <span>${item.quantidade}</span>
-                <button class="btn-qtd" onclick="alterarQuantidade('${item.id}', 1)">+</button>
+                <button class="btn-qtd" onclick="window.alterarQuantidade('${item.id}', 1)">+</button>
             </div>
         </div>
     `).join('');
 }
 
-// 6. MODAL E ENVIO WHATSAPP (COM GPS OPCIONAL)
+// 6. MODAL E ENVIO WHATSAPP
 function abrirModalResumo() {
-    const nome = document.getElementById('nomeCliente').value.trim();
-    const telefone = document.getElementById('telefoneCliente').value.trim();
-    const rua = document.getElementById('ruaCliente').value.trim();
-    const numero = document.getElementById('numeroCliente').value.trim();
-    const bairro = document.getElementById('bairroCliente').value.trim();
-    const gps = document.getElementById('linkGps').value;
-
     if (carrinho.length === 0) {
         alert('Seu carrinho está vazio!');
         return;
     }
 
+    const nome = document.getElementById('nomeCliente')?.value.trim() || '';
+    const telefone = document.getElementById('telefoneCliente')?.value.trim() || '';
+    const rua = document.getElementById('ruaCliente')?.value.trim() || '';
+    const numero = document.getElementById('numeroCliente')?.value.trim() || '';
+    const bairro = document.getElementById('bairroCliente')?.value.trim() || '';
+    const gps = document.getElementById('linkGps')?.value || '';
+    
+    const precisaTalheres = document.querySelector('input[name="precisaTalheres"]:checked')?.value || 'Não';
+    const pagamentoEl = document.querySelector('input[name="formaPagamento"]:checked');
+
     if (!nome || !telefone) {
         alert('Por favor, preencha seu nome e telefone!');
+        return;
+    }
+
+    if (!pagamentoEl) {
+        alert('Por favor, selecione uma forma de pagamento!');
         return;
     }
 
@@ -353,67 +320,76 @@ function abrirModalResumo() {
         return;
     }
 
-    document.getElementById('modalNomeTel').textContent = `${nome} (${telefone})`;
+    // Exibe Nome, Telefone e opção de Talheres sem sobrescrever
+    const modalNomeTel = document.getElementById('modalNomeTel');
+    if (modalNomeTel) {
+        modalNomeTel.innerHTML = `
+            <strong>${nome}</strong> (${telefone})<br>
+            🍴 <strong>Talheres descartáveis:</strong> ${precisaTalheres}
+        `;
+    }
     
     let endTxt = "";
-    if (temGps) {
-        endTxt += "📍 Localização enviada via GPS";
-    }
+    if (temGps) endTxt += "📍 Localização enviada via GPS";
     
     if (temEnderecoManual) {
         if (endTxt) endTxt += " | ";
         endTxt += `${rua}, Nº ${numero} - ${bairro}`;
     }
 
-    const comp = document.getElementById('complementoCliente').value.trim();
-    const ref = document.getElementById('referenciaCliente').value.trim();
+    const comp = document.getElementById('complementoCliente')?.value.trim();
+    const ref = document.getElementById('referenciaCliente')?.value.trim();
 
     if (comp) endTxt += ` (${comp})`;
     if (ref) endTxt += ` - Ref: ${ref}`;
 
-    document.getElementById('modalEndereco').textContent = endTxt;
+    const modalEndereco = document.getElementById('modalEndereco');
+    if (modalEndereco) modalEndereco.textContent = endTxt;
 
     const modalItens = document.getElementById('modalItensLista');
-    modalItens.innerHTML = carrinho.map(i => `
-        <p><strong>${i.quantidade}x ${i.nome}</strong> - R$ ${(i.preco * i.quantidade).toFixed(2).replace('.', ',')}<br>
-        <small style="color:#6c757d">${i.detalhes}</small></p>
-    `).join('<hr style="border:0; border-top:1px solid #eee; margin:4px 0;">');
+    if (modalItens) {
+        modalItens.innerHTML = carrinho.map(i => `
+            <p><strong>${i.quantidade}x ${i.nome}</strong> - R$ ${(i.preco * i.quantidade).toFixed(2).replace('.', ',')}<br>
+            <small style="color:#6c757d">${i.detalhes}</small></p>
+        `).join('<hr style="border:0; border-top:1px solid #eee; margin:4px 0;">');
+    }
 
-    const pagamento = document.querySelector('input[name="formaPagamento"]:checked').value;
-    document.getElementById('modalPagamentoInfo').textContent = pagamento;
+    const modalPagamento = document.getElementById('modalPagamentoInfo');
+    if (modalPagamento) modalPagamento.textContent = pagamentoEl.value;
 
     const valorTotal = carrinho.reduce((acc, cur) => acc + (cur.preco * cur.quantidade), 0);
-    document.getElementById('modalTotalValor').textContent = `R$ ${valorTotal.toFixed(2).replace('.', ',')}`;
+    const modalTotal = document.getElementById('modalTotalValor');
+    if (modalTotal) modalTotal.textContent = `R$ ${valorTotal.toFixed(2).replace('.', ',')}`;
 
-    document.getElementById('modalResumo').classList.add('visivel');
+    document.getElementById('modalResumo')?.classList.add('visivel');
 }
 
 function fecharModalResumo() {
-    document.getElementById('modalResumo').classList.remove('visivel');
+    document.getElementById('modalResumo')?.classList.remove('visivel');
 }
 
 function enviarPedidoWhatsApp() {
-    const nome = document.getElementById('nomeCliente').value.trim();
-    const telefone = document.getElementById('telefoneCliente').value.trim();
-    const rua = document.getElementById('ruaCliente').value.trim();
-    const numero = document.getElementById('numeroCliente').value.trim();
-    const bairro = document.getElementById('bairroCliente').value.trim();
-    const comp = document.getElementById('complementoCliente').value.trim();
-    const ref = document.getElementById('referenciaCliente').value.trim();
-    const obs = document.getElementById('observacaoCliente').value.trim();
-    const gps = document.getElementById('linkGps').value;
-    const pagamento = document.querySelector('input[name="formaPagamento"]:checked').value;
+    const nome = document.getElementById('nomeCliente')?.value.trim() || '';
+    const telefone = document.getElementById('telefoneCliente')?.value.trim() || '';
+    const rua = document.getElementById('ruaCliente')?.value.trim() || '';
+    const numero = document.getElementById('numeroCliente')?.value.trim() || '';
+    const bairro = document.getElementById('bairroCliente')?.value.trim() || '';
+    const comp = document.getElementById('complementoCliente')?.value.trim() || '';
+    const ref = document.getElementById('referenciaCliente')?.value.trim() || '';
+    const obs = document.getElementById('observacaoCliente')?.value.trim() || '';
+    const gps = document.getElementById('linkGps')?.value || '';
+    const pagamento = document.querySelector('input[name="formaPagamento"]:checked')?.value || 'Não informado';
+    const precisaTalheres = document.querySelector('input[name="precisaTalheres"]:checked')?.value || 'Não';
 
     let msg = `*BRILLATO MASSAS* 🍝\n`;
     msg += `*Novo Pedido Confirmado*\n\n`;
     msg += `👤 *Cliente:* ${nome}\n`;
-    msg += `📞 *WhatsApp:* ${telefone}\n\n`;
+    msg += `📞 *WhatsApp:* ${telefone}\n`;
+    msg += `🍴 *Precisa de Talheres:* ${precisaTalheres}\n\n`;
 
     msg += `📍 *Endereço de Entrega:*\n`;
     
-    if (gps) {
-        msg += `🗺️ *Localização GPS:* ${gps}\n`;
-    }
+    if (gps) msg += `🗺️ *Localização GPS:* ${gps}\n`;
 
     if (rua && numero && bairro) {
         msg += `${rua}, Nº ${numero} - ${bairro}\n`;
@@ -436,7 +412,7 @@ function enviarPedidoWhatsApp() {
         msg += `\n📝 *Observações:* ${obs}\n`;
     }
 
-    const numeroWhatsApp = "5562993431622"; // Insira aqui o número real do restaurante
+    const numeroWhatsApp = "5562993431622";
     const url = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(msg)}`;
 
     window.open(url, '_blank');

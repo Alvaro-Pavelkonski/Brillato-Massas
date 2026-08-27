@@ -687,3 +687,12 @@ body {
     border-top: 1px solid var(--border-color);
     margin-top: 40px;
 }
+.form-grupo {
+    margin-bottom: 14px;
+}
+
+.form-grupo label {
+    display: block;
+    font-size: 0.88rem;
+    color: var(--text-color);
+}
