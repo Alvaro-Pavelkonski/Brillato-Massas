@@ -17,7 +17,7 @@
     <header class="cabecalho">
         <div class="header-container">
             <div class="logo">
-                <img src="Gemini_Generated_Image_ny6dz2ny6dz2ny6d_2.png" alt="Brillato Massas" class="logo-img" onerror="this.src='https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=200&q=80'">
+                <img src="input_file_0.png" alt="Brillato Massas" class="logo-img" onerror="this.src='https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=200&q=80'">
                 <div class="logo-texto">
                     <h1>Brillato</h1>
                     <p>Massas artesanais</p>
@@ -46,6 +46,7 @@
     <nav class="categorias-nav">
         <button class="cat-btn active" data-target="secao-monte">🍝 Monte a sua</button>
         <button class="cat-btn" data-target="secao-massas">🍝 Massas Prontas</button>
+        <button class="cat-btn" data-target="secao-sobremesas">🍮 Sobremesas</button>
         <button class="cat-btn" data-target="secao-adicionais">🧀 Adicionais</button>
         <button class="cat-btn" data-target="secao-bebidas">🥤 Bebidas</button>
     </nav>
@@ -57,7 +58,7 @@
                 <div class="card-monte-header">
                     <h2>🍝 Monte seu Macarrão</h2>
                     <p class="subtitulo">Crie seu macarrão personalizado do seu jeito!</p>
-                    <span class="badge-preco">A partir de R$ 48,00</span>
+                    <span class="badge-preco">A partir de R$ 60,00</span>
                 </div>
 
                 <form id="formMonteMacarrao" class="monte-form">
@@ -121,7 +122,7 @@
                         </div>
                     </div>
 
-                    <button type="button" id="btn-montar-macarrao" class="btn-acao primario full">Adicionar ao pedido • R$ 48,00</button>
+                    <button type="button" id="btn-montar-macarrao" class="btn-acao primario full">Adicionar ao pedido • R$ 60,00</button>
                 </form>
             </div>
         </section>
@@ -133,18 +134,18 @@
 
                 <article class="produto-card">
                     <div class="produto-img-box">
-                        <img src="https://images.unsplash.com/photo-1621996346565-e3d5d6281288?w=500&q=80" alt="Bolonhesa" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1546549032-9571cd6b27df?w=500&q=80" alt="Brillato Especial" loading="lazy">
                     </div>
                     <div class="produto-conteudo">
-                        <h3>Bolonhesa</h3>
-                        <p class="descricao">Macarrão Grano Duro com molho bolonhesa, carne moída, cebola verde e salsa.</p>
+                        <h3>Brillato Especial</h3>
+                        <p class="descricao">Macarrão grano duro, molho bolonhesa, bacon, muçarela, cebola verde, salsa e alho crocante.</p>
 
                         <div class="produto-opcoes">
                             <div class="select-field">
                                 <label>Tamanho</label>
                                 <select class="tamanho-select">
-                                    <option value="20.00" data-label="P (500g)">P — 500g — R$ 20,00</option>
-                                    <option value="28.00" data-label="G (750g)">G — 750g — R$ 28,00</option>
+                                    <option value="30.00" data-label="P (500g)">P — 500g — R$ 30,00</option>
+                                    <option value="40.00" data-label="G (750g)">G — 750g — R$ 40,00</option>
                                 </select>
                             </div>
                             <div class="select-field">
@@ -158,7 +159,73 @@
                         </div>
 
                         <div class="produto-rodape">
-                            <span class="preco-destaque">A partir de R$ 20,00</span>
+                            <span class="preco-destaque">A partir de R$ 30,00</span>
+                            <button class="btn-acao btn-add-massa" data-nome="Brillato Especial">Adicionar</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="produto-card">
+                    <div class="produto-img-box">
+                        <img src="https://images.unsplash.com/photo-1621996346565-e3d5d6281288?w=500&q=80" alt="Brillato da Casa" loading="lazy">
+                    </div>
+                    <div class="produto-conteudo">
+                        <h3>Brillato da Casa</h3>
+                        <p class="descricao">Macarrão grano duro, molho bolonhesa, molho branco, milho, bacon, calabresa, frango, cebola verde, salsa e orégano.</p>
+
+                        <div class="produto-opcoes">
+                            <div class="select-field">
+                                <label>Tamanho</label>
+                                <select class="tamanho-select">
+                                    <option value="38.00" data-label="P (500g)">P — 500g — R$ 38,00</option>
+                                    <option value="48.00" data-label="G (750g)">G — 750g — R$ 48,00</option>
+                                </select>
+                            </div>
+                            <div class="select-field">
+                                <label>Massa</label>
+                                <select class="massa-select">
+                                    <option value="Espaguete">Espaguete</option>
+                                    <option value="Penne">Penne</option>
+                                    <option value="Parafuso">Parafuso</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="produto-rodape">
+                            <span class="preco-destaque">A partir de R$ 38,00</span>
+                            <button class="btn-acao btn-add-massa" data-nome="Brillato da Casa">Adicionar</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="produto-card">
+                    <div class="produto-img-box">
+                        <img src="img/bolonhesa.jpeg" alt="Bolonhesa" loading="lazy">
+                    </div>
+                    <div class="produto-conteudo">
+                        <h3>Bolonhesa</h3>
+                        <p class="descricao">Macarrão Grano Duro com molho bolonhesa, carne moída, cebola verde e salsa.</p>
+
+                        <div class="produto-opcoes">
+                            <div class="select-field">
+                                <label>Tamanho</label>
+                                <select class="tamanho-select">
+                                    <option value="25.00" data-label="P (500g)">P — 500g — R$ 25,00</option>
+                                    <option value="35.00" data-label="G (750g)">G — 750g — R$ 35,00</option>
+                                </select>
+                            </div>
+                            <div class="select-field">
+                                <label>Massa</label>
+                                <select class="massa-select">
+                                    <option value="Espaguete">Espaguete</option>
+                                    <option value="Penne">Penne</option>
+                                    <option value="Parafuso">Parafuso</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="produto-rodape">
+                            <span class="preco-destaque">A partir de R$ 25,00</span>
                             <button class="btn-acao btn-add-massa" data-nome="Bolonhesa">Adicionar</button>
                         </div>
                     </div>
@@ -166,7 +233,7 @@
 
                 <article class="produto-card">
                     <div class="produto-img-box">
-                        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=500&q=80" alt="Alho e Óleo com Bacon" loading="lazy">
+                        <img src="img/alho e olho.jpeg" alt="Alho e Óleo com Bacon" loading="lazy">
                     </div>
                     <div class="produto-conteudo">
                         <h3>Alho e Óleo com Bacon</h3>
@@ -177,7 +244,7 @@
                                 <label>Tamanho</label>
                                 <select class="tamanho-select">
                                     <option value="20.00" data-label="P (500g)">P — 500g — R$ 20,00</option>
-                                    <option value="28.00" data-label="G (750g)">G — 750g — R$ 28,00</option>
+                                    <option value="32.00" data-label="G (750g)">G — 750g — R$ 32,00</option>
                                 </select>
                             </div>
                             <div class="select-field">
@@ -199,7 +266,7 @@
 
                 <article class="produto-card">
                     <div class="produto-img-box">
-                        <img src="https://images.unsplash.com/photo-1645112411341-6c4fd023714a?w=500&q=80" alt="Molho Branco" loading="lazy">
+                        <img src="img/molho branco.jpeg" alt="Molho Branco" loading="lazy">
                     </div>
                     <div class="produto-conteudo">
                         <h3>Molho Branco</h3>
@@ -209,8 +276,8 @@
                             <div class="select-field">
                                 <label>Tamanho</label>
                                 <select class="tamanho-select">
-                                    <option value="26.00" data-label="P (500g)">P — 500g — R$ 26,00</option>
-                                    <option value="35.00" data-label="G (750g)">G — 750g — R$ 35,00</option>
+                                    <option value="34.00" data-label="P (500g)">P — 500g — R$ 34,00</option>
+                                    <option value="45.00" data-label="G (750g)">G — 750g — R$ 45,00</option>
                                 </select>
                             </div>
                             <div class="select-field">
@@ -224,7 +291,7 @@
                         </div>
 
                         <div class="produto-rodape">
-                            <span class="preco-destaque">A partir de R$ 26,00</span>
+                            <span class="preco-destaque">A partir de R$ 34,00</span>
                             <button class="btn-acao btn-add-massa" data-nome="Molho Branco">Adicionar</button>
                         </div>
                     </div>
@@ -242,8 +309,8 @@
                             <div class="select-field">
                                 <label>Tamanho</label>
                                 <select class="tamanho-select">
-                                    <option value="26.00" data-label="P (500g)">P — 500g — R$ 26,00</option>
-                                    <option value="35.00" data-label="G (750g)">G — 750g — R$ 35,00</option>
+                                    <option value="30.00" data-label="P (500g)">P — 500g — R$ 30,00</option>
+                                    <option value="45.00" data-label="G (750g)">G — 750g — R$ 45,00</option>
                                 </select>
                             </div>
                             <div class="select-field">
@@ -257,7 +324,7 @@
                         </div>
 
                         <div class="produto-rodape">
-                            <span class="preco-destaque">A partir de R$ 26,00</span>
+                            <span class="preco-destaque">A partir de R$ 30,00</span>
                             <button class="btn-acao btn-add-massa" data-nome="Ao Sugo">Adicionar</button>
                         </div>
                     </div>
@@ -275,8 +342,8 @@
                             <div class="select-field">
                                 <label>Tamanho</label>
                                 <select class="tamanho-select">
-                                    <option value="28.00" data-label="P (500g)">P — 500g — R$ 28,00</option>
-                                    <option value="38.00" data-label="G (750g)">G — 750g — R$ 38,00</option>
+                                    <option value="32.00" data-label="P (500g)">P — 500g — R$ 32,00</option>
+                                    <option value="45.00" data-label="G (750g)">G — 750g — R$ 45,00</option>
                                 </select>
                             </div>
                             <div class="select-field">
@@ -290,12 +357,32 @@
                         </div>
 
                         <div class="produto-rodape">
-                            <span class="preco-destaque">A partir de R$ 28,00</span>
+                            <span class="preco-destaque">A partir de R$ 32,00</span>
                             <button class="btn-acao btn-add-massa" data-nome="Molho Misto">Adicionar</button>
                         </div>
                     </div>
                 </article>
 
+            </div>
+        </section>
+
+        <!-- SEÇÃO: SOBREMESAS -->
+        <section id="secao-sobremesas" class="secao-cardapio">
+            <h2 class="titulo-categoria">🍮 Sobremesas</h2>
+            <div class="produtos-grid">
+                <article class="produto-card horizontal">
+                    <div class="produto-img-box mini">
+                        <img src="img/pudim.jpeg" alt="Pudim" loading="lazy">
+                    </div>
+                    <div class="produto-conteudo">
+                        <h3>Pudim</h3>
+                        <p class="descricao">Pudim tradicional e cremoso com calda de caramelo.</p>
+                        <div class="produto-rodape">
+                            <span class="preco-destaque">R$ 13,00</span>
+                            <button class="btn-acao btn-add-sobremesa" data-nome="Pudim" data-preco="13.00">Adicionar</button>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -338,14 +425,6 @@
                     </div>
                     <button class="btn-acao btn-add-adicional" data-nome="Uva Passas" data-preco="3.00">Adicionar</button>
                 </article>
-
-                <article class="item-simples-card">
-                    <div class="item-info">
-                        <h4>Brócolis</h4>
-                        <span class="preco-tag">+ R$ 3,00</span>
-                    </div>
-                    <button class="btn-acao btn-add-adicional" data-nome="Brócolis" data-preco="3.00">Adicionar</button>
-                </article>
             </div>
 
             <!-- GRUPO: R$ 4,00 -->
@@ -377,27 +456,11 @@
 
                 <article class="item-simples-card">
                     <div class="item-info">
-                        <h4>Batata Palha</h4>
+                        <h4>Brócolis</h4>
                         <span class="preco-tag">+ R$ 4,00</span>
                     </div>
-                    <button class="btn-acao btn-add-adicional" data-nome="Batata Palha" data-preco="4.00">Adicionar</button>
-                </article>
-
-                <article class="item-simples-card">
-                    <div class="item-info">
-                        <h4>Ovo de Codorna</h4>
-                        <span class="preco-tag">+ R$ 4,00</span>
-                    </div>
-                    <button class="btn-acao btn-add-adicional" data-nome="Ovo de Codorna" data-preco="4.00">Adicionar</button>
-                </article>
-
-                <article class="item-simples-card">
-                    <div class="item-info">
-                        <h4>Salsicha</h4>
-                        <span class="preco-tag">+ R$ 4,00</span>
-                    </div>
-                    <button class="btn-acao btn-add-adicional" data-nome="Salsicha" data-preco="4.00">Adicionar</button>
-                </article>
+                    <button class="btn-acao btn-add-adicional" data-nome="Brócolis" data-preco="4.00">Adicionar</button>
+                </article>        
             </div>
 
             <!-- GRUPO: R$ 5,00 -->
@@ -413,26 +476,62 @@
 
                 <article class="item-simples-card">
                     <div class="item-info">
-                        <h4>Bacon</h4>
+                        <h4>Batata Palha</h4>
                         <span class="preco-tag">+ R$ 5,00</span>
                     </div>
-                    <button class="btn-acao btn-add-adicional" data-nome="Bacon" data-preco="5.00">Adicionar</button>
+                    <button class="btn-acao btn-add-adicional" data-nome="Batata Palha" data-preco="5.00">Adicionar</button>
+                </article>
+
+                <article class="item-simples-card">
+                    <div class="item-info">
+                        <h4>Ovo de Codorna</h4>
+                        <span class="preco-tag">+ R$ 5,00</span>
+                    </div>
+                    <button class="btn-acao btn-add-adicional" data-nome="Ovo de Codorna" data-preco="5.00">Adicionar</button>
+                </article>
+
+                <article class="item-simples-card">
+                    <div class="item-info">
+                        <h4>Salsicha</h4>
+                        <span class="preco-tag">+ R$ 5,00</span>
+                    </div>
+                    <button class="btn-acao btn-add-adicional" data-nome="Salsicha" data-preco="5.00">Adicionar</button>
+                </article>
+            </div>
+
+            <!-- GRUPO: R$ 7,00 -->
+            <h3 class="grupo-titulo" style="font-size: 1rem; margin: 24px 0 8px; color: var(--text-color);">Adicionais — R$ 7,00</h3>
+            <div class="adicionais-grid">
+                <article class="item-simples-card">
+                    <div class="item-info">
+                        <h4>Calabresa</h4>
+                        <span class="preco-tag">+ R$ 7,00</span>
+                    </div>
+                    <button class="btn-acao btn-add-adicional" data-nome="Calabresa" data-preco="7.00">Adicionar</button>
+                </article>
+
+                <article class="item-simples-card">
+                    <div class="item-info">
+                        <h4>Bacon</h4>
+                        <span class="preco-tag">+ R$ 7,00</span>
+                    </div>
+                    <button class="btn-acao btn-add-adicional" data-nome="Bacon" data-preco="7.00">Adicionar</button>
                 </article>
 
                 <article class="item-simples-card">
                     <div class="item-info">
                         <h4>Muçarela</h4>
-                        <span class="preco-tag">+ R$ 5,00</span>
+                        <span class="preco-tag">+ R$ 7,00</span>
                     </div>
-                    <button class="btn-acao btn-add-adicional" data-nome="Muçarela" data-preco="5.00">Adicionar</button>
+                    <button class="btn-acao btn-add-adicional" data-nome="Muçarela" data-preco="7.00">Adicionar</button>
                 </article>
 
                 <article class="item-simples-card">
                     <div class="item-info">
                         <h4>Frango desfiado</h4>
-                        <span class="preco-tag">+ R$ 5,00</span>
+                        <span class="preco-tag">+ R$ 7,00</span>
                     </div>
-                    <button class="btn-acao btn-add-adicional" data-nome="Frango desfiado" data-preco="5.00">Adicionar</button>
+                    <button class="btn-acao btn-add-adicional" data-nome="Frango desfiado" data-preco="7.00">Adicionar</button>
                 </article>
             </div>
 
@@ -493,19 +592,35 @@
         <section id="secao-bebidas" class="secao-cardapio">
             <h2 class="titulo-categoria">🥤 Bebidas</h2>
             <div class="bebidas-grid">
+
                 <article class="produto-card horizontal">
                     <div class="produto-img-box mini">
-                        <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&q=80" alt="Coca-Cola 350ml" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=300&q=80" alt="Coca-Cola Zero 350ml" loading="lazy">
                     </div>
                     <div class="produto-conteudo">
-                        <h3>Coca-Cola 350ml</h3>
-                        <p class="descricao">Lata trincando de gelada.</p>
+                        <h3>Coca-Cola Zero</h3>
+                        <p class="descricao">Lata 350ml trincando de gelada.</p>
                         <div class="produto-rodape">
-                            <span class="preco-destaque">R$ 6,00</span>
-                            <button class="btn-acao btn-add-bebida" data-nome="Coca-Cola 350ml" data-preco="6.00">Adicionar</button>
+                            <span class="preco-destaque">R$ 7,00</span>
+                            <button class="btn-acao btn-add-bebida" data-nome="Coca-Cola Zero" data-preco="7.00">Adicionar</button>
                         </div>
                     </div>
                 </article>
+
+                <article class="produto-card horizontal">
+                    <div class="produto-img-box mini">
+                        <img src="img/Lata Gelada de Guaraná Antarctica.png" alt="Guaraná Antarctica 350ml" loading="lazy">
+                    </div>
+                    <div class="produto-conteudo">
+                        <h3>Guaraná Antarctica</h3>
+                        <p class="descricao">Lata 350ml trincando de gelada.</p>
+                        <div class="produto-rodape">
+                            <span class="preco-destaque">R$ 7,00</span>
+                            <button class="btn-acao btn-add-bebida" data-nome="Guaraná Antarctica" data-preco="7.00">Adicionar</button>
+                        </div>
+                    </div>
+                </article>
+
             </div>
         </section>
 
@@ -541,21 +656,52 @@
                 </div>
                 
                 <div class="form-grupo">
-    <label><strong>Precisa de talheres descartáveis?</strong></label>
-    <div class="grid-radios" style="margin-top: 6px;">
-        <label class="radio-card">
-            <input type="radio" name="precisaTalheres" value="Não" checked>
-            <span>Não precisa</span>
-        </label>
-        <label class="radio-card">
-            <input type="radio" name="precisaTalheres" value="Sim">
-            <span>Sim, por favor</span>
-        </label>
-    </div>
-</div>
+                    <label><strong>Precisa de talheres descartáveis?</strong></label>
+                    <div class="grid-radios" style="margin-top: 6px;">
+                        <label class="radio-card">
+                            <input type="radio" name="precisaTalheres" value="Não" checked>
+                            <span>Não precisa</span>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="precisaTalheres" value="Sim">
+                            <span>Sim, por favor</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- FORMA DE PAGAMENTO -->
+                <div class="campo-formulario">
+                    <label>
+                        💳 Forma de pagamento
+                    </label>
+
+                    <div class="opcoes-pagamento">
+
+                        <label class="opcao-pagamento">
+                            <input
+                                type="radio"
+                                name="formaPagamento"
+                                value="Pix"
+                            >
+                            <span>💚 Pix</span>
+                        </label>
+
+                        <label class="opcao-pagamento">
+                            <input
+                                type="radio"
+                                name="formaPagamento"
+                                value="Débito"
+                            >
+                            <span>💳 Débito</span>
+                        </label>
+
+                    </div>
+                </div>
 
                 <!-- BLOCO DE LOCALIZAÇÃO GPS -->
                 <div class="bloco-gps">
+                    <input type="hidden" id="linkGps" value="">
+
                     <button type="button" id="btnGeolocalizacao" class="btn-gps">
                         📍 Obter Minha Localização Atual (GPS)
                     </button>
@@ -566,105 +712,76 @@
                     💡 Use a localização acima <strong>OU</strong> preencha os campos de endereço abaixo:
                 </small>
 
-                <!-- CAMPOS DE ENDEREÇO (OPCIONAIS SE O GPS FOR USADO) -->
+                <!-- CAMPOS DE ENDEREÇO -->
                 <div class="campos-entrega">
                     <input type="text" id="ruaCliente" placeholder="Rua / Avenida" class="input-padrao">
                     <div class="grid-2-col">
                         <input type="text" id="numeroCliente" placeholder="Número" class="input-padrao">
                         <input type="text" id="bairroCliente" placeholder="Bairro" class="input-padrao">
                     </div>
-                    <input type="text" id="complementoCliente" placeholder="Complemento (Apto, Bloco)" class="input-padrao">
-                    <input type="text" id="referenciaCliente" placeholder="Ponto de referência" class="input-padrao">
-                    <input type="hidden" id="linkGps">
+                    <input type="text" id="complementoCliente" placeholder="Complemento (Ap, Bloco, Ref.)" class="input-padrao">
+                    <input type="text" id="referenciaCliente" placeholder="Ponto de Referência" class="input-padrao" style="margin-top: 8px;">
                 </div>
 
-                <!-- FORMA DE PAGAMENTO (RESTRITO A PIX E DÉBITO) -->
-                <div class="grupo-pagamento">
-                    <h3>💳 Forma de Pagamento</h3>
-                    <div class="opcoes-radio-pagamento">
-                        <label class="radio-pagamento-card">
-                            <input type="radio" name="formaPagamento" value="PIX" checked>
-                            <span class="radio-content">
-                                <strong>PIX</strong>
-                                <small>Chave enviada no WhatsApp</small>
-                            </span>
-                        </label>
-                        <label class="radio-pagamento-card">
-                            <input type="radio" name="formaPagamento" value="Cartão de Débito">
-                            <span class="radio-content">
-                                <strong>Cartão de Débito</strong>
-                                <small>Maquininha na entrega</small>
-                            </span>
-                        </label>
-                    </div>
+                <div class="campo-grupo" style="margin-top: 12px;">
+                    <textarea id="observacaoPedido" placeholder="Observações do pedido (ex: sem cebola, entregar no portão...)" class="input-padrao" rows="3"></textarea>
                 </div>
 
-                <div class="campo-grupo">
-                    <textarea id="observacaoCliente" placeholder="Observações do pedido (ex: tirar a cebola, caprichar no molho...)" class="input-padrao textarea"></textarea>
-                </div>
+                <button type="button" id="btnFinalizarPedido" class="btn-acao primario full grande" style="margin-top: 16px;">
+                    Enviar Pedido pelo WhatsApp
+                </button>
             </div>
-
-            <button id="btnFinalizarPedido" class="btn-acao primario full btn-finalizar-lg">
-                Conferir e Avançar para o Resumo
-            </button>
         </section>
     </main>
 
-    <!-- BARRA FIXA DE CARRINHO PARA CELULAR -->
+    <!-- BARRA FIXA MOBILE -->
     <div id="barraFixaCarrinho" class="barra-fixa-mobile oculto">
         <div class="info-barra">
             <span id="mobileQtdItens">0 itens</span>
             <strong id="mobileValorTotal">R$ 0,00</strong>
         </div>
-        <button id="btnVerCarrinhoMobile" class="btn-acao primario sm">Ver Pedido 🛒</button>
+        <button id="btnVerCarrinhoMobile" class="btn-acao primario">Ver Pedido</button>
     </div>
 
-    <!-- MODAL DE RESUMO -->
+    <!-- MODAL DE CONFIRMAÇÃO DO PEDIDO -->
     <div id="modalResumo" class="modal-overlay">
         <div class="modal-conteudo">
             <div class="modal-header">
-                <h2>📋 Resumo do Pedido</h2>
+                <h3>Resumo do Pedido</h3>
                 <button id="btnFecharModal" class="btn-fechar">&times;</button>
             </div>
 
-            <div class="modal-corpo">
-                <section class="resumo-bloco">
-                    <h4>👤 Cliente</h4>
-                    <p id="modalNomeTel"></p>
-                </section>
+            <div class="resumo-bloco">
+                <h4>Cliente</h4>
+                <p id="modalNomeTel"></p>
+            </div>
 
-                <section class="resumo-bloco">
-                    <h4>📍 Endereço</h4>
-                    <p id="modalEndereco"></p>
-                </section>
+            <div class="resumo-bloco">
+                <h4>Endereço de Entrega</h4>
+                <p id="modalEndereco"></p>
+            </div>
 
-                <section class="resumo-bloco">
-                    <h4>🍝 Itens do Pedido</h4>
-                    <div id="modalItensLista" class="resumo-itens-lista"></div>
-                </section>
+            <div class="resumo-bloco">
+                <h4>Itens do Pedido</h4>
+                <div id="modalItensLista"></div>
+            </div>
 
-                <section class="resumo-bloco">
-                    <h4>💳 Pagamento</h4>
-                    <p id="modalPagamentoInfo"></p>
-                </section>
+            <div class="resumo-bloco">
+                <h4>Forma de Pagamento</h4>
+                <p id="modalPagamentoInfo"></p>
+            </div>
 
-                <div class="modal-total-box">
-                    <span>Total a pagar:</span>
-                    <strong id="modalTotalValor">R$ 0,00</strong>
-                </div>
+            <div class="modal-total-box">
+                <span>Total:</span>
+                <span id="modalTotalValor">R$ 0,00</span>
             </div>
 
             <div class="modal-botoes">
-                <button class="btn-acao secundario" id="btnEditarPedido">Voltar e Editar</button>
-                <button class="btn-acao wpp" id="btnConfirmarPedido">Enviar Pedido no WhatsApp 🚀</button>
+                <button id="btnEditarPedido" class="btn-acao secundario">Corrigir</button>
+                <button id="btnConfirmarPedido" class="btn-acao wpp">Confirmar e Enviar no WhatsApp</button>
             </div>
         </div>
     </div>
-
-    <footer class="rodape">
-        <p><strong>Brillato Massas Artesanais</strong> © 2026</p>
-        <p>Quinta a Domingo das 19h às 23h</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>

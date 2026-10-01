@@ -696,3 +696,43 @@ body {
     font-size: 0.88rem;
     color: var(--text-color);
 }
+/* =====================================================
+   FORMA DE PAGAMENTO
+   ===================================================== */
+
+.opcoes-pagamento {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.opcao-pagamento {
+    flex: 1;
+    cursor: pointer;
+}
+
+.opcao-pagamento input {
+    display: none;
+}
+
+.opcao-pagamento span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background: #fff;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.opcao-pagamento input:checked + span {
+    border-color: #2e7d32;
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.opcao-pagamento span:hover {
+    border-color: #2e7d32;
+}
